@@ -1,0 +1,198 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	f.Intrinsic.Control.Try
+		F.ODBC.Connection!con.OpenCompanyConnection
+		
+		'Script to be run only on hook 10120
+		f.Intrinsic.Control.CallSub(FormatScreen)
+		
+		F.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.Catch
+		f.Intrinsic.Control.CallSub(ErrorMsg, CurrentSub, v.Ambient.CurrentSubroutine)
+	f.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.FormatScreen.Start
+Variable.Local.sUserGroups.Declare(String)
+Variable.Local.bChk.Declare(Boolean)
+Variable.passed.000128.set("Make to Stock")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000128, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000128,"TABSTOP", 0)
+Variable.passed.000129.set("Alternate Price 2")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000129, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000129,"TABSTOP", 0)
+Variable.passed.000130.set("Alternate Price 3")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000130, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000130,"TABSTOP", 0)
+Variable.passed.000131.set("Alternate Price 4")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000131, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000131,"TABSTOP", 0)
+Variable.passed.000132.set("Alternate Price 5")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000132, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000132,"TABSTOP", 0)
+Variable.passed.000133.set("Alternate Price 6")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000133, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000133,"TABSTOP", 0)
+Variable.passed.000134.set("Alternate Price 7")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000134, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000134,"TABSTOP", 0)
+Variable.passed.000135.set("Alternate Price 8")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000135, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000135,"TABSTOP", 0)
+Variable.passed.000136.set("Alternate Price 9")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000136, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000136,"TABSTOP", 0)
+Variable.passed.000137.set("Alternate Price 10")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000137, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000137,"TABSTOP", 0)
+Variable.passed.000138.set("Alternate Price 11")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000138, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000138,"TABSTOP", 0)
+Variable.passed.000139.set("Alternate Price 12")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000139, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000139,"TABSTOP", 0)
+Variable.passed.000140.set("Alternate Price 13")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000140, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000140,"TABSTOP", 0)
+Variable.passed.000141.set("Alternate Price 14")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000141, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000141,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000053, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000053,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000054, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000054,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000055, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000055,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000056, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000056,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000108, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000108,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000109, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000109,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000110, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000110,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000115, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000115,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000116, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000116,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000117, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000117,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000118, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000118,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000119, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000119,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000120, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000120,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000121, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000121,"TABSTOP", 0)
+Variable.passed.000127.set("14")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000127, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000127,"TABSTOP", 0)
+Variable.passed.000126.set("13")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000126, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000126,"TABSTOP", 0)
+Variable.passed.000125.set("12")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000125, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000125,"TABSTOP", 0)
+Variable.passed.000114.set("11")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000114, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000114,"TABSTOP", 0)
+Variable.passed.000113.set("10")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000113, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000113,"TABSTOP", 0)
+Variable.passed.000112.set("9")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000112, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000112,"TABSTOP", 0)
+Variable.passed.000111.set("8")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000111, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000111,"TABSTOP", 0)
+Variable.passed.000124.set("7")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000124, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000124,"TABSTOP", 0)
+Variable.passed.000123.set("6")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000123, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000123,"TABSTOP", 0)
+Variable.passed.000122.set("5")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000122, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000122,"TABSTOP", 0)
+Function.Intrinsic.Variable.SetProperty("000027","FC",0)
+Function.Intrinsic.Variable.SetProperty("000027","BC",8454143)
+Function.Intrinsic.Variable.SetProperty("000028","FC",0)
+Function.Intrinsic.Variable.SetProperty("000028","BC",8454143)
+Function.Intrinsic.Variable.SetProperty("000012","FC",0)
+Function.Intrinsic.Variable.SetProperty("000012","BC",8454143)
+Function.Intrinsic.Variable.SetProperty("000007","FC",0)
+Function.Intrinsic.Variable.SetProperty("000007","BC",8454143)
+Variable.passed.000099.set("2")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000099, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000099,"TABSTOP", 0)
+Variable.passed.000100.set("1")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000100, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000100,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000086, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000086,"TABSTOP", 0)
+Variable.passed.000098.set("3")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000098, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000098,"TABSTOP", 0)
+Function.Intrinsic.Variable.SetProperty("000060","FC",0)
+Function.Intrinsic.Variable.SetProperty("000060","BC",8454143)
+Variable.passed.000082.set("Floor Stock Lvl")
+Variable.passed.000059.set("Est/ Quoted Cost")
+Variable.passed.000095.set("Max Order")
+Function.Intrinsic.Variable.SetProperty("000008","FC",0)
+Function.Intrinsic.Variable.SetProperty("000008","BC",8454143)
+Function.Intrinsic.Variable.SetProperty("000014","FC",0)
+Function.Intrinsic.Variable.SetProperty("000014","BC",8454143)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000009,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000073,"TABSTOP", 0)
+Function.Intrinsic.Variable.SetProperty("000011","FC",0)
+Function.Intrinsic.Variable.SetProperty("000011","BC",8454143)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000017,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000079,"TABSTOP", 0)
+'Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000020,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000080,"TABSTOP", 0)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000066,"TABSTOP", 0)
+Variable.passed.000094.set("Safety Stock")
+Variable.passed.000078.set("B/F Bin")
+Variable.passed.000058.set("Average Cost")
+Function.Intrinsic.Variable.SetProperty("000025","FC",0)
+Function.Intrinsic.Variable.SetProperty("000025","BC",8454143)
+Variable.passed.000097.set("4")
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000097, "HIDE", 1)
+Function.Intrinsic.UI.ChangeCallerProperty(variable.passed.000097,"TABSTOP", 0)
+Function.Intrinsic.Variable.SetProperty("000019","FC",0)
+Function.Intrinsic.Variable.SetProperty("000019","BC",8454143)
+Variable.passed.000084.set("Min/ Multiple Qty")
+Function.Intrinsic.Variable.SetProperty("000021","FC",0)
+Function.Intrinsic.Variable.SetProperty("000021","BC",8454143)
+V.Passed.000068.Set("Bom Cust View")
+V.Passed.000069.Set("Label Data View")
+Program.Sub.FormatScreen.End
+
+Program.Sub.ErrorMsg.Start
+v.Local.sError.Declare
+
+'Closes ODBC connection, default to connection : "con"
+f.Intrinsic.Control.If(v.ODBC!con.State, =, 1)
+	f.ODBC.Connection!con.Close
+f.Intrinsic.Control.EndIf
+
+'Generic Error message.
+f.Intrinsic.String.Build("Project GCG_5602_InvMstr_ScreenFormatting.g2u {0}{0}Subroutine: {1}{0}Error: {2} with Description: {3}", v.Ambient.NewLine, v.Args.CurrentSub, v.Ambient.ErrorNumber, v.Ambient.ErrorDescription, v.Local.sError)
+f.Intrinsic.UI.Msgbox(v.Local.sError)
+Program.Sub.ErrorMsg.End
+
+Program.Sub.Comments.Start
+	Author: Daniel Duncan
+	Customer: Load King
+	Program Name: GCG_5602_InvMstr_ScreenFormatting
+	Date Started: 7/9/2019
+	Description: Project combines three previously developed scripts.  It configures the inventory master screen fields on hook 10120 (populate), launches new BOM fields screen on hook 10210 (Script 1), and launches a new Label View screen on hook 10220 (Script 2).
+	Quote: 
+	GAP: 5602
+Program.Sub.Comments.End
