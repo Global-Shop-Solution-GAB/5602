@@ -1,0 +1,101 @@
+﻿Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare(String)
+V.Local.sPart.Declare(String)
+V.Local.sRev.Declare(String)
+V.Local.sLoc.Declare(String)
+V.Local.sTemp.Declare(String)
+
+F.ODBC.Connection!con.OpenCompanyConnection
+
+F.Intrinsic.Control.SelectCase(V.Caller.Hook)
+	'Quote Lines - Populate Hook
+	F.Intrinsic.Control.Case("10260")
+		V.Passed.000201.Set("Supp/Dmnd")
+		V.Passed.000202.Set("Part Master")
+	'Order Entry Lines - Populate Hook
+	F.Intrinsic.Control.Case("12010")
+		V.Passed.000162.Set("Supp/Dmnd")
+		V.Passed.000141.Set("Part Master")
+		F.Intrinsic.Control.CallSub(populate)
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.CallSub(unload)
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: {0}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}","GCG_5602_Quote_ScreenFormatting.g2u",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(unload)
+	F.Intrinsic.Control.EndIf
+Function.Intrinsic.Control.EndTry
+
+Program.Sub.Main.End
+
+Program.Sub.unload.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare(String,"")
+	
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: GCG_5602_Quote_ScreenFormatting.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndTry
+Program.Sub.unload.End
+
+Program.Sub.Populate.Start
+F.Intrinsic.Control.Try
+
+	V.Local.sError.Declare(String,"")
+
+	'This subroutine makes the custom checkbox and label visible to the user
+	
+	'FOR LABEL
+	'Set horizontal position
+	f.Intrinsic.Variable.SetProperty("GAB-LBL-1","PL",384)
+	'Set vertical position
+	F.Intrinsic.Variable.SetProperty("GAB-LBL-1","PT",8)
+	f.Intrinsic.UI.ChangeCallerProperty(v.Passed.GAB-LBL-1,"HIDE",0)
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-LBL-1,"LOCK",0)
+	V.Passed.GAB-LBL-1.Set("Approved")
+	
+	'FOR TEXT BOX
+	'Set horizontal position
+	f.Intrinsic.Variable.SetProperty("GAB-CHK-1","PL",364)
+	'Set vertical position
+	F.Intrinsic.Variable.SetProperty("GAB-CHK-1","PT",8)
+	f.Intrinsic.UI.ChangeCallerProperty(v.Passed.GAB-CHK-1,"HIDE",0)
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.GAB-CHK-1,"LOCK",0)
+	
+	F.Intrinsic.UI.ChangeCallerProperty(V.Passed.000061, "LOCK", 1)
+	V.Passed.GAB-CHK-1.Set("N")
+	
+	F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+		F.Intrinsic.String.Build("Project: GCG_5602_Quote_ScreenFormatting.g2u{0}{0}Subroutine: {1}{0}Error Occurred {2} with description {3}",V.Ambient.NewLine,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.CallSub(unload)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndTry
+Program.Sub.Populate.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$sstanka$}$20210514105439971$}$mP+zz5Tw3sT2/nyap+FbWm4triMPqjXDdjnz31N6leqaEzSRwJe7qvbQdmsExNGoINE1rMm2P9g=
+Program.Sub.Comments.End
